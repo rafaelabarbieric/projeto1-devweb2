@@ -52,85 +52,166 @@
 
 </script>
 
-<template>
+<template class="fundo">
 
-  <div v-if="dadosUsuario">
+  <div class="form" v-if="dadosUsuario">
     <h1>Crie seu perfil:</h1>
 
     <form>
 
-      <label for="nome">Nome:</label>
-      <input type="text" id="nome" v-model="usuario.nome">
+      <div class="mb-3 mt-3">
+        <label class="form-label" for="nome">Nome:</label>
+        <input class="form-control" type="text" id="nome" v-model="usuario.nome">
+      </div>
 
-      <label for="sobrenome">Sobrenome:</label>
-      <input type="text" id="sobrenome" v-model="usuario.sobrenome">
+      <div class="mb-3 mt-3">
+        <label class="form-label" for="sobrenome">Sobrenome:</label>
+        <input class="form-control" type="text" id="sobrenome" v-model="usuario.sobrenome">
+      </div>
 
-      <label for="email">Email:</label>
-      <input type="email" id="email" v-model="usuario.email">
+      <div class="mb-3 mt-3">
+        <label class="form-label" for="email">Email:</label>
+        <div class="input-group">
+          <span class="input-group-text">@</span>
+          <input class="form-control" type="email" id="email" v-model="usuario.email">
+        </div>
+      </div>
+      
 
-      <label for="dataN">Data de nascimento:</label>
-      <input type="date" id="dataN" v-model="usuario.dataNasc">
+      <div  class="mb-3 mt-3">
+        <label class="form-label" for="dataN">Data de nascimento:</label>
+        <input class="form-control" type="date" id="dataN" v-model="usuario.dataNasc">
+      </div>
 
-      <label for="endereco">Seu endereço:</label>
-      <input type="text" id="endereco" v-model="usuario.endereco">
+      <div class="mb-3 mt-3">
+        <label class="form-label" for="endereco">Seu endereço:</label>
+        <input class="form-control" type="text" id="endereco" v-model="usuario.endereco">
+      </div>
 
-      <label for="cidade">Sua Cidade:</label>
-      <input type="text" id="cidade" v-model="usuario.cidade">
+      <div class="mb-3 mt-3">
+        <label class="form-label" for="cidade">Sua Cidade:</label>
+        <input class="form-control" type="text" id="cidade" v-model="usuario.cidade">
+      </div>
 
-      <label for="estado">Informe seu estado:</label>
-      <select id="estado" name="estados" v-model="usuario.estado">
-        <option v-for="estado of estados" >{{ estado.name }}</option>
-      </select>
+      <div class="mb-3 mt-3">
+        <label class="form-label" for="estado">Informe seu estado:</label>
+        <select class="form-select" id="estado" name="estados" v-model="usuario.estado">
+          <option v-for="estado of estados" >{{ estado.name }}</option>
+        </select>
+      </div>
 
-      <label for="hobbies">Seus Hobbies:</label>
-      <input type="checkbox" v-model="usuario.hobbies" value="esportes">Esportes
-      <input type="checkbox" v-model="usuario.hobbies" value="musicas">Músicas
-      <input type="checkbox" v-model="usuario.hobbies" value="filmes">Filmes
-      <input type="checkbox" v-model="usuario.hobbies" value="viagens">Viagens
-      <input type="checkbox" v-model="usuario.hobbies" value="leitura">Leitura
+      <div class="mb-3 mt-3">
+        <label class="form-check" for="hobbies">Seus Hobbies:</label>
+        <input class="form-check-input" type="checkbox" v-model="usuario.hobbies" value="esportes"> Esportes
+        <input class="form-check-input" type="checkbox" v-model="usuario.hobbies" value="musicas"> Músicas
+        <input class="form-check-input" type="checkbox" v-model="usuario.hobbies" value="filmes"> Filmes
+        <input class="form-check-input" type="checkbox" v-model="usuario.hobbies" value="viagens"> Viagens
+        <input class="form-check-input" type="checkbox" v-model="usuario.hobbies" value="leitura"> Leitura
+      </div>
 
-      <label for="lingProg">Sua Linguagem de Progamação Favorita:</label>
-      <input type="radio" v-model="usuario.lingProg" value="C">C
-      <input type="radio" v-model="usuario.lingProg" value="JavaSctipt">JavaScript
-      <input type="radio" v-model="usuario.lingProg" value="Python">Python
+      <div class="mb-3 mt-3">
+        <label class="form-check" for="lingProg">Sua Linguagem de Progamação Favorita:</label>
+        <input class="form-check-input" type="radio" v-model="usuario.lingProg" value="C"> C
+        <input class="form-check-input" type="radio" v-model="usuario.lingProg" value="JavaSctipt"> JavaScript
+        <input class="form-check-input" type="radio" v-model="usuario.lingProg" value="Python"> Python
+      </div>
 
-      <label for="bio">Biografia:</label>
-      <input type="text" id="bio" v-model="usuario.biografia">
+      <div class="mb-3 mt-3">
+        <label for="bio">Biografia:</label>
+        <textarea class="form-control" rows="5" type="text" id="bio" v-model="usuario.biografia"></textarea>
+      </div>
 
-      <label for="senha">Crie uma Senha:</label>
-      <input type="text" id="senha" v-model="usuario.senha">
+      <div class="mb-3 mt-3">
+        <label class="form-label" for="senha">Crie uma Senha:</label>
+        <input class="form-control" type="text" id="senha" v-model="usuario.senha">
+      </div>
 
-      <label for="senhaC">Confime sua Senha:</label>
-      <input type="text" id="senhaC" v-model="usuario.sConfirmacao">
+      <div class="mb-3 mt-3">
+        <label class="form-label" for="senhaC">Confime sua Senha:</label>
+        <input class="form-control" type="text" id="senhaC" v-model="usuario.sConfirmacao">
+      </div>
 
     </form>
 
-    <button  @click="dadosUsuario = false">Enviar</button>
+    <button class="btn btn-primary" @click="dadosUsuario = false">Enviar</button>
 
   </div>
 
-  <div v-else>
+
+  <div class="dados" v-else>
     
     <h1>Seus Dados:</h1>
 
-    <p>Nome: {{ usuario.nome }}</p>
-    <p>Sobrenome: {{ usuario.sobrenome }}</p>
-    <p>Email: {{ usuario.email }}</p>
-    <p>Data de nascimento: {{ usuario.dataNasc }}</p>
-    <p>Endereço: {{ usuario.endereco }}</p>
-    <p>Cidade: {{ usuario.cidade }}</p>
-    <p>Estado: {{ usuario.estado }}</p>
-    <p>Hobbies: {{ usuario.hobbies.join(', ') }}</p>
-    <p>Linguagem de Progamação favorita: {{ usuario.lingProg }}</p>
-    <p>Bio: {{ usuario.biografia }}</p>
-    <p>Senha: {{ usuario.senha }}</p>
+    <div class="mb-3 mt-3">
+      <p>Nome: {{ usuario.nome }}</p>
+    </div>
 
-    <button  @click="dadosUsuario = true">Editar</button>
+    <div class="mb-3 mt-3">
+      <p>Sobrenome: {{ usuario.sobrenome }}</p>
+    </div>
+
+    <div class="mb-3 mt-3">
+      <p>Email: {{ usuario.email }}</p>
+    </div>
+
+    <div class="mb-3 mt-3">
+      <p>Data de nascimento: {{ usuario.dataNasc }}</p>
+    </div>
+
+    <div class="mb-3 mt-3">
+      <p>Endereço: {{ usuario.endereco }}</p>
+    </div>
+
+    <div class="mb-3 mt-3">
+      <p>Cidade: {{ usuario.cidade }}</p>
+    </div>
+
+    <div class="mb-3 mt-3">
+      <p>Estado: {{ usuario.estado }}</p>
+    </div>
+
+    <div class="mb-3 mt-3">
+      <p>Hobbies: {{ usuario.hobbies.join(', ') }}</p>
+    </div>
+
+    <div class="mb-3 mt-3">
+      <p>Linguagem de Progamação favorita: {{ usuario.lingProg }}</p>
+    </div>
+
+    <div class="mb-3 mt-3">
+      <p>Bio: {{ usuario.biografia }}</p>
+    </div>
+
+    <div class="mb-3 mt-3">
+      <p>Senha: {{ usuario.senha }}</p>
+    </div>
+
+    <button class="btn btn-primary"  @click="dadosUsuario = true">Editar</button>
 
   </div>
   
 </template>
 
 <style scoped>
+
+/*Formulario*/
+  .form{
+    margin-top: 10%;
+    margin-bottom: 10%;
+    border: 1px solid rgb(223, 219, 219);
+    border-radius: 6px;
+    padding: 30px;
+  }
+
+  .form-check-input{
+    margin-left: 10px;
+  }
+
+/*Dados do Usuario*/
+  .dados{
+    border: 1px solid rgb(223, 219, 219);
+    border-radius: 6px;
+    padding: 30px;
+  }
 
 </style>
