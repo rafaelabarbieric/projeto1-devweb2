@@ -123,12 +123,12 @@
 
       <div class="mb-3 mt-3">
         <label class="form-label" for="senha">Crie uma Senha:</label>
-        <input class="form-control" type="text" id="senha" v-model="usuario.senha">
+        <input class="form-control" type="password" id="senha" v-model="usuario.senha">
       </div>
 
       <div class="mb-3 mt-3">
         <label class="form-label" for="senhaC">Confime sua Senha:</label>
-        <input class="form-control" type="text" id="senhaC" v-model="usuario.sConfirmacao">
+        <input class="form-control" type="password" id="senhaC" v-model="usuario.sConfirmacao">
       </div>
 
     </form>
