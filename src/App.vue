@@ -172,7 +172,7 @@
 
     <div class="mb-3 mt-3">
       <p>Estado: {{ usuario.estado }}</p>
-    </div>key="estado"
+    </div>
 
     <div class="mb-3 mt-3">
       <p>Hobbies: {{ usuario.hobbies.join(', ') }}</p>
