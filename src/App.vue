@@ -54,9 +54,11 @@
 
 <template class="fundo">
 
+  <!-- Formulário -->
   <div class="form" v-if="dadosUsuario">
     <h1>Crie seu perfil:</h1>
 
+    <!-- Dados Pedidos -->
     <form>
 
       <div class="mb-3 mt-3">
@@ -96,7 +98,7 @@
       <div class="mb-3 mt-3">
         <label class="form-label" for="estado">Informe seu estado:</label>
         <select class="form-select" id="estado" name="estados" v-model="usuario.estado">
-          <option v-for="estado of estados" >{{ estado.name }}</option>
+          <option v-for="estado of estados " :key="estado" :value="estado.name">{{ estado.name }}</option>
         </select>
       </div>
 
@@ -133,11 +135,13 @@
 
     </form>
 
+    <!-- Botão Enviar -->
     <button class="btn btn-primary" @click="dadosUsuario = false">Enviar</button>
 
   </div>
 
 
+  <!--Dados do Usuario-->
   <div class="dados" v-else>
     
     <h1>Seus Dados:</h1>
@@ -161,14 +165,14 @@
     <div class="mb-3 mt-3">
       <p>Endereço: {{ usuario.endereco }}</p>
     </div>
-
+    
     <div class="mb-3 mt-3">
       <p>Cidade: {{ usuario.cidade }}</p>
     </div>
 
     <div class="mb-3 mt-3">
       <p>Estado: {{ usuario.estado }}</p>
-    </div>
+    </div>key="estado"
 
     <div class="mb-3 mt-3">
       <p>Hobbies: {{ usuario.hobbies.join(', ') }}</p>
@@ -186,6 +190,7 @@
       <p>Senha: {{ usuario.senha }}</p>
     </div>
 
+    <!-- Botão Editar -->
     <button class="btn btn-primary"  @click="dadosUsuario = true">Editar</button>
 
   </div>
@@ -203,8 +208,11 @@
     padding: 30px;
   }
 
+  .form-check{
+    margin-bottom: 10px;
+  }
   .form-check-input{
-    margin-left: 10px;
+    margin-left: 15px;
   }
 
 /*Dados do Usuario*/
