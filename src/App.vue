@@ -1,8 +1,8 @@
 <script setup>
 
-  import { ref } from 'vue'
+  import { reactive, ref } from 'vue'
 
-  let usuario = ref({
+  let usuario = reactive({
     nome: '',
     sobrenome: '',
     email: '',
@@ -14,7 +14,8 @@
     lingProg: '',
     biografia: '',
     senha: '',
-    sConfirmacao: ''
+    sConfirmacao: '',
+    fotoUsuario: null
   })
 
   
@@ -50,15 +51,23 @@
 
   const dadosUsuario = ref(true)
 
+  function handleFileUpload(e) {
+    const target = e.target;
+    if (target && target.files) {
+      const file = target.files[0];
+      usuario.fotoUsuario = URL.createObjectURL(file);
+    }
+  }
+
 </script>
 
 <template class="fundo">
 
-  <!-- Formulário -->
+  <!--Formulário-->
   <div class="form" v-if="dadosUsuario">
     <h1>Crie seu perfil:</h1>
 
-    <!-- Dados Pedidos -->
+    <!--Dados Pedidos-->
     <form>
 
       <div class="mb-3 mt-3">
@@ -133,9 +142,14 @@
         <input class="form-control" type="password" id="senhaC" v-model="usuario.sConfirmacao">
       </div>
 
+      <!--Input Imagem-->
+      <div class="mb-3 mt-3">
+        <input class="form-control" type="file" id="fotoUsuario" @change="handleFileUpload($event)">
+      </div>
+
     </form>
 
-    <!-- Botão Enviar -->
+    <!--Botão Enviar-->
     <button class="btn btn-primary" @click="dadosUsuario = false">Enviar</button>
 
   </div>
@@ -144,7 +158,12 @@
   <!--Dados do Usuario-->
   <div class="dados" v-else>
     
-    <h1>Seus Dados:</h1>
+    <h2>Seus Dados:</h2>
+
+    <!--Imagem-->
+    <div id="img" class="mb-3 mt-3">
+      <img class="imagem" v-if="usuario.fotoUsuario" :src="usuario.fotoUsuario">
+    </div>
 
     <div class="mb-3 mt-3">
       <p>Nome: {{ usuario.nome }}</p>
@@ -190,7 +209,7 @@
       <p>Senha: {{ usuario.senha }}</p>
     </div>
 
-    <!-- Botão Editar -->
+    <!--Botão Editar-->
     <button class="btn btn-primary"  @click="dadosUsuario = true">Editar</button>
 
   </div>
@@ -217,9 +236,26 @@
 
 /*Dados do Usuario*/
   .dados{
+    margin-top: 10%;
+    margin-bottom: 10%;
     border: 1px solid rgb(223, 219, 219);
     border-radius: 6px;
-    padding: 30px;
+    padding: 50px;
+  }
+
+  h2{
+    text-align: center
+  }
+
+/*Imagem*/
+  .imagem{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+  }
+
+  #img{
+    text-align: center
   }
 
 </style>
