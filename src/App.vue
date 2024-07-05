@@ -73,7 +73,7 @@
       <div class="mb-3 mt-3">
         <label class="form-label" for="nome">Nome:</label>
         <input class="form-control" type="text" id="nome" v-model="usuario.nome">
-      </div>projeto1-form-devweb2.surge.sh
+      </div>
 
       <div class="mb-3 mt-3">
         <label class="form-label" for="sobrenome">Sobrenome:</label>
