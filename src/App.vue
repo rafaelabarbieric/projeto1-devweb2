@@ -73,7 +73,7 @@
       <div class="mb-3 mt-3">
         <label class="form-label" for="nome">Nome:</label>
         <input class="form-control" type="text" id="nome" v-model="usuario.nome">
-      </div>
+      </div>projeto1-form-devweb2.surge.sh
 
       <div class="mb-3 mt-3">
         <label class="form-label" for="sobrenome">Sobrenome:</label>
@@ -125,7 +125,7 @@
         <input class="form-check-input" type="radio" v-model="usuario.lingProg" value="C"> C
         <input class="form-check-input" type="radio" v-model="usuario.lingProg" value="JavaSctipt"> JavaScript
         <input class="form-check-input" type="radio" v-model="usuario.lingProg" value="Python"> Python
-      </div>This will only take a minute.
+      </div>
 
 
       <div class="mb-3 mt-3">
