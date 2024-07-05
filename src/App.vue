@@ -125,7 +125,8 @@
         <input class="form-check-input" type="radio" v-model="usuario.lingProg" value="C"> C
         <input class="form-check-input" type="radio" v-model="usuario.lingProg" value="JavaSctipt"> JavaScript
         <input class="form-check-input" type="radio" v-model="usuario.lingProg" value="Python"> Python
-      </div>
+      </div>This will only take a minute.
+
 
       <div class="mb-3 mt-3">
         <label for="bio">Biografia:</label>
@@ -150,7 +151,7 @@
     </form>
 
     <!--Botão Enviar-->
-    <button class="btn btn-primary" @click="dadosUsuario = false">Enviar</button>
+    <button v-if="usuario.senha === usuario.sConfirmacao" class="btn btn-primary" @click="dadosUsuario = false">Enviar</button>
 
   </div>
 
