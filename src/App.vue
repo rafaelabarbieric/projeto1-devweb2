@@ -17,7 +17,6 @@
     sConfirmacao: '',
     fotoUsuario: null
   })
-
   
   let estados = [
   {name: 'AC'},
@@ -72,19 +71,19 @@
 
       <div class="mb-3 mt-3">
         <label class="form-label" for="nome">Nome:</label>
-        <input class="form-control" type="text" id="nome" v-model="usuario.nome">
+        <input class="form-control" type="text" id="nome" v-model="usuario.nome" required>
       </div>
 
       <div class="mb-3 mt-3">
         <label class="form-label" for="sobrenome">Sobrenome:</label>
-        <input class="form-control" type="text" id="sobrenome" v-model="usuario.sobrenome">
+        <input class="form-control" type="text" id="sobrenome" v-model="usuario.sobrenome" required>
       </div>
 
       <div class="mb-3 mt-3">
         <label class="form-label" for="email">Email:</label>
         <div class="input-group">
           <span class="input-group-text">@</span>
-          <input class="form-control" type="email" id="email" v-model="usuario.email">
+          <input class="form-control" type="email" id="email" v-model="usuario.email" required>
         </div>
       </div>
       
@@ -151,6 +150,7 @@
     </form>
 
     <!--Botão Enviar-->
+
     <button v-if="usuario.senha === usuario.sConfirmacao" class="btn btn-primary" @click="dadosUsuario = false">Enviar</button>
 
   </div>
